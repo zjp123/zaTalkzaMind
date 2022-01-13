@@ -1,4 +1,106 @@
+@import "./weui.wxss";
+
 /**index.wxss**/
+page {
+  background-color: #F8F8F8;
+  height: 100%;
+  font-size: 32rpx;
+  line-height: 1.6;
+}
+.page-section{
+  width: 100%;
+  /* margin-bottom: 60rpx; */
+}
+.page-section_center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.page-section:last-child{
+  margin-bottom: 0;
+}
+.page-section-spacing{
+  box-sizing: border-box;
+  /* padding: 0 80rpx; */
+}
+.page-section-gap .page-section-title{
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.demo-text-1{
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: #1AAD19;
+  color: #FFFFFF;
+  font-size: 36rpx;
+}
+.demo-text-1:before{
+  content: 'A';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.demo-text-2{
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: #2782D7;
+  color: #FFFFFF;
+  font-size: 36rpx;
+}
+.demo-text-2:before{
+  content: 'B';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.demo-text-3{
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: #F1F1F1;
+  color: #353535;
+  font-size: 36rpx;
+}
+.demo-text-3:before{
+  content: 'C';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+button{
+  margin-bottom: 30rpx;
+}
+button:last-child{
+  margin-bottom: 0;
+}
+.page-section-title{
+  padding: 0;
+}
+.swiper-item .img-b{
+  width: 100%;
+  /* height: 200px; */
+  /* height: 100rpx; */
+}
+.page-section-title{
+  /* margin-top: 60rpx; */
+  position: relative;
+}
+.info{
+  position: absolute;
+  right: 0;
+  color: #353535;
+  font-size: 30rpx;
+}
+.page-foot{
+  margin-top: 50rpx;
+}
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -13,7 +115,20 @@
   margin: 20rpx;
   border-radius: 50%;
 }
-
-.usermotto {
-  margin-top: 200px;
+.inline-style {
+  display: flex;
+  line-height: 32px;
+  height: 32px;
+  padding: 0 5px;
+  background-color: bisque;
+  justify-content: space-between;
+  font-size: 14px;
+  margin: 10px 0;
+}
+.inline-style button {
+  font-size: 14px;
+  /* width: 100px; */
+  padding: 0;
+  margin: 0;
+  /* margin-right: 5px; */
 }

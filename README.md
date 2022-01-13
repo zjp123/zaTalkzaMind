@@ -33,3 +33,13 @@ wx.login 通过code 传给服务端  服务端通过code调用微信api，获取
 
 感觉这个就像是：颗粒度更细的优化
 ```
+```
+新版登陆：
+wx.getUserProfile  wx.getSetting   wx.login
+
+weui:
+https://developers.weixin.qq.com/miniprogram/dev/platform-capabilities/extended/weui/
+https://wechat-miniprogram.github.io/weui/docs/
+https://github.com/Tencent/weui-wxss/
+
+```

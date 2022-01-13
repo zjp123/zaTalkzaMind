@@ -33,7 +33,7 @@
         "showES6CompileOption": false
     },
     "compileType": "miniprogram",
-    "libVersion": "2.21.3",
+    "libVersion": "2.19.1",
     "appid": "wx257ba6bdbc773ff8",
     "projectname": "zaTalkzaMind",
     "debugOptions": {

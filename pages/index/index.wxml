@@ -1,23 +1,57 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <block wx:if="{{canIUseOpenData}}">
+    <view class="page-section">
+      <swiper
+        indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
+        interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+        <block wx:for="{{images}}" wx:key="*this">
+          <swiper-item>
+            <image class="img-b" mode="widthFix" src="{{item}}"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class="areaMap">
+      <view class="inline-style">
+        <view>
+          <text>地理位置：</text><text>安徽省-阜阳市-阜南县</text>
+        </view>
+        <button size="mini" type="primary">查看地图</button>
+      </view>
+      <view>
+        <text>风土人情</text>
+      </view>
+      
+    </view>
+  <!-- <view class="userinfo"> -->
+    <!-- <block wx:if="{{canIUseOpenData}}">
       <view class="userinfo-avatar" bindtap="bindViewTap">
         <open-data type="userAvatarUrl"></open-data>
       </view>
       <open-data type="userNickName"></open-data>
-    </block>
-    <block wx:elif="{{!hasUserInfo}}">
+    </block> -->
+    <!-- <view wx:if="{{userInfo.avatarUrl}}" >
+        <image style="width:100px; height: 100px; border-radius: 50%; background-color: #eeeeee;" mode="widthFix" src="{{userInfo.avatarUrl}}" ></image>
+    </view>
+    <view>
+        <text class="user-motto">{{userInfo.nickName}}</text>
+    </view>
+    <button bindtap="getUserProfile"> 获取头像昵称 </button>
+    <button bindtap="getOpenId"> 获取opendId </button> -->
+    <!-- <view class="userinfo-avatar">
+        <open-data type="userAvatarUrl"></open-data>
+    </view> -->
+    <!-- <block wx:elif="{{!hasUserInfo}}">
       <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
       <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
       <view wx:else> 请使用1.4.4及以上版本基础库 </view>
-    </block>
-    <block wx:else>
+    </block> -->
+    <!-- <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
+    </block> -->
+  <!-- </view> -->
+  <!-- <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
-  </view>
+  </view> -->
 </view>
