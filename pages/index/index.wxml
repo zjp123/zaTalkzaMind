@@ -16,7 +16,7 @@
         <view>
           <text>地理位置：</text><text>安徽省-阜阳市-阜南县</text>
         </view>
-        <button size="mini" type="primary">查看地图</button>
+        <button size="mini" bindtap="goToMap" type="primary">查看地图</button>
       </view>
       <view>
         <text>风土人情</text>

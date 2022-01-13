@@ -26,6 +26,11 @@ Page({
       url: '../logs/logs'
     })
   },
+  goToMap() {
+    wx.navigateTo({
+      url: '../map/map'
+    })
+  },
   onLoad() {
     console.log(this.userInfo, 'userInfo')
     if (wx.getUserProfile) {

@@ -1,0 +1,11 @@
+<!--pages/map/map.wxml-->
+<map 
+  id="mapId"
+  class="map"
+  markers="{{[markers]}}"
+  latitude="{{latitude}}"
+  longitude="{{longitude}}"
+  bindmarkertap="onMarkerTap"
+  bindcallouttap="onCalloutTap"
+  bindlabeltap="onLabelTap"
+></map>
