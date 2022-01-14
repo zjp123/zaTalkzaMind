@@ -19,7 +19,30 @@
         <button size="mini" bindtap="goToMap" type="primary">查看地图</button>
       </view>
       <view>
-        <text>风土人情</text>
+        <view class="local-customs"><text>风土人情</text></view>
+        <view class="card banya">
+          <view class="card-title" bindtap="showBanya">
+            <text>郜台板鸭</text>
+            <image src="../../images/downArrow.png"></image>
+          </view>
+          <view class="banya-content" hidden="{{banya}}">
+            郜台板鸭”系地方特产，是一种独具风格的佳味肉食。产于淮河岸边阜阳县蓄洪库内，该板鸭均选用当地放养120日龄左右的笨鸭，采用传统工艺结合现代新技术精制而成。日晒夜露、自然风干，不加任何调料。制作考究，形板味美，浸料齐全。食用时无需添加任何作料，是纯天然的绿色食品。二00二年四月十八日“郜台板鸭”在北京人民大会堂被列为“沿海与中西部配货营销联合体系”特色配送营销产品。
+          </view>
+          
+        </view>
+        <view class="card banya" bindtap="showSanzi">
+          <view class="card-title">
+            <text>方集馓子</text>
+            <image src="../../images/downArrow.png"></image>
+          </view>
+          <view class="banya-content" hidden="{{sanzi}}">
+            馓子是用白面为原料，稍加盐和调料，搓成细条（越细说明手艺越好），一圈圈放入油中炸制而成，酥脆可口。方集镇地处淮河支流洪河洼地，安徽省与河南省交界处，保留着沿淮最纯朴民风民俗和最原始的淮河风光。阜南方集馓子纯手工制作，原料采制淮河洪洼地区，天然绿色。其条匀细，中含芝麻，脆而酥。每逢集市，卖馓者多聚集在集市一角，或设摊卖馓，或现炸现卖。
+          </view>
+        </view>
+        <!-- <view class="card liubian">
+          <text>柳编</text>
+          <view>柳编柳编柳编柳编柳编</view>
+        </view> -->
       </view>
       
     </view>

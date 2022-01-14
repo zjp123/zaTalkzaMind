@@ -6,6 +6,8 @@ Page({
   data: {
     userInfo: wx.getStorageSync('userInfo') || {},
     hasUserInfo: false,
+    banya: false,
+    sanzi: true,
     indicatorDots: true,
     vertical: false,
     autoplay: true,
@@ -14,9 +16,11 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     canIUseGetUserProfile: false,
     images: [
-      'https://res.wx.qq.com/wxdoc/dist/assets/img/0.4cb08bb4.jpg',
-      'https://res.wx.qq.com/wxdoc/dist/assets/img/0.4cb08bb4.jpg',
-      'https://res.wx.qq.com/wxdoc/dist/assets/img/0.4cb08bb4.jpg',
+      '../../images/1.jpeg',
+      '../../images/2.jpeg',
+      '../../images/3.jpeg',
+      '../../images/4.jpeg',
+      '../../images/5.jpeg',
     ],
     canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName') // 如需尝试获取用户信息可改为false
   },
@@ -81,6 +85,16 @@ Page({
       }
     })
   },
+  showBanya () {
+    this.setData({
+      banya: !this.data.banya
+    })
+  },
+  showSanzi () {
+    this.setData({
+      sanzi: !this.data.sanzi
+    })
+  }
   // getUserInfo(e) {
   //   // 不推荐使用getUserInfo获取用户信息，预计自2021年4月13日起，getUserInfo将不再弹出弹窗，并直接返回匿名的用户个人信息
   //   console.log(e)

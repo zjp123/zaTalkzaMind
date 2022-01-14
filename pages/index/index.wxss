@@ -28,52 +28,6 @@ page {
   padding-right: 0;
 }
 
-.demo-text-1{
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  background-color: #1AAD19;
-  color: #FFFFFF;
-  font-size: 36rpx;
-}
-.demo-text-1:before{
-  content: 'A';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.demo-text-2{
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  background-color: #2782D7;
-  color: #FFFFFF;
-  font-size: 36rpx;
-}
-.demo-text-2:before{
-  content: 'B';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.demo-text-3{
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  background-color: #F1F1F1;
-  color: #353535;
-  font-size: 36rpx;
-}
-.demo-text-3:before{
-  content: 'C';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 button{
   margin-bottom: 30rpx;
 }
@@ -83,9 +37,17 @@ button:last-child{
 .page-section-title{
   padding: 0;
 }
+swiper{
+  width: 100%;
+  height: 200px;
+}
+/* swiper-item {
+  width: 100%;
+  height: 300px;
+} */
 .swiper-item .img-b{
   width: 100%;
-  /* height: 200px; */
+  /* height: 100%; */
   /* height: 100rpx; */
 }
 .page-section-title{
@@ -131,4 +93,43 @@ button:last-child{
   padding: 0;
   margin: 0;
   /* margin-right: 5px; */
+}
+/* 风土人情 */
+.local-customs{
+  text-align: center;
+  height: 32px;
+  line-height: 32px;
+  font-size: 16px;
+  background: -webkit-linear-gradient(left,pink,lightblue,skyblue);
+  /* background-color: rgb(50, 148, 41); */
+}
+.card{
+  padding: 0 10px;
+  margin-top: 10px;
+}
+/* banya */
+.card-title {
+  height: 32px;
+  line-height: 32px;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+}
+.card-title image {
+  width: 17px;
+  height: 17px;
+}
+.banya-content{
+  background-color: #fff;
+  width: 90%;
+  margin:0 auto;
+  text-indent: 28px;
+  text-align: justify;
+  padding: 5px;
 }
