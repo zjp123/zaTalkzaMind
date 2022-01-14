@@ -1,13 +1,17 @@
 // index.js
 // 获取应用实例
 const app = getApp()
-
+const Utils =  require('../../utils/util') 
+const fetchFn = new Utils.HTTP()
 Page({
   data: {
     userInfo: wx.getStorageSync('userInfo') || {},
     hasUserInfo: false,
     banya: false,
     sanzi: true,
+    circular: true,
+    liubian: true,
+    hexian: true,
     indicatorDots: true,
     vertical: false,
     autoplay: true,
@@ -22,6 +26,9 @@ Page({
       '../../images/4.jpeg',
       '../../images/5.jpeg',
     ],
+    weatherData: {
+      
+    },
     canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName') // 如需尝试获取用户信息可改为false
   },
   // 事件处理函数
@@ -94,6 +101,29 @@ Page({
     this.setData({
       sanzi: !this.data.sanzi
     })
+  },
+  showLiubian () {
+    this.setData({
+      liubian: !this.data.liubian
+    })
+  },
+  showHexian () {
+    this.setData({
+      hexian: !this.data.hexian
+    })
+  },
+  async getWeartherDataFn () {
+    const res = await fetchFn.request({ 
+      url: 'http://apis.juhe.cn/simpleWeather/query', 
+      data: {
+        city: '阜阳',
+        key: '2d323f647f8807681253ae2983d35efb'
+      }
+     })
+     this.setData({
+       weatherData: res
+     })
+    //  console.log(res, 'ress')
   }
   // getUserInfo(e) {
   //   // 不推荐使用getUserInfo获取用户信息，预计自2021年4月13日起，getUserInfo将不再弹出弹窗，并直接返回匿名的用户个人信息

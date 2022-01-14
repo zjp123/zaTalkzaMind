@@ -30,8 +30,8 @@ class HTTP{
       method: method,
       success: (res) => {
         let data = res.data;
-        if (data.status != undefined && data.status == "ok") {
-          resolve(data.data)
+        if ((data.status != undefined && data.status == "ok") || data.error_code === 0) {
+          resolve(data)
         } else {
           reject();
           wx.showModal({

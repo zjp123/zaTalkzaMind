@@ -11,14 +11,6 @@ page {
   width: 100%;
   /* margin-bottom: 60rpx; */
 }
-.page-section_center{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.page-section:last-child{
-  margin-bottom: 0;
-}
 .page-section-spacing{
   box-sizing: border-box;
   /* padding: 0 80rpx; */
@@ -26,13 +18,6 @@ page {
 .page-section-gap .page-section-title{
   padding-left: 0;
   padding-right: 0;
-}
-
-button{
-  margin-bottom: 30rpx;
-}
-button:last-child{
-  margin-bottom: 0;
 }
 .page-section-title{
   padding: 0;
@@ -45,7 +30,7 @@ swiper{
   width: 100%;
   height: 300px;
 } */
-.swiper-item .img-b{
+swiper-item .img-b{
   width: 100%;
   /* height: 100%; */
   /* height: 100rpx; */
@@ -59,9 +44,6 @@ swiper{
   right: 0;
   color: #353535;
   font-size: 30rpx;
-}
-.page-foot{
-  margin-top: 50rpx;
 }
 .userinfo {
   display: flex;
@@ -85,13 +67,20 @@ swiper{
   background-color: bisque;
   justify-content: space-between;
   font-size: 14px;
+  align-items: center;
   margin: 10px 0;
 }
+/* .inline-style view{
+  vertical-align: middle;
+} */
 .inline-style button {
-  font-size: 14px;
+  font-size: 14px !important;
   /* width: 100px; */
   padding: 0;
   margin: 0;
+  height: 28px;
+  /* vertical-align: middle; */
+  /* line-height: 28px !important; */
   /* margin-right: 5px; */
 }
 /* 风土人情 */
@@ -132,4 +121,30 @@ swiper{
   text-indent: 28px;
   text-align: justify;
   padding: 5px;
+}
+/* 天气 */
+.weather{
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #f0f0f0;
+  border-radius: 20px;
+  width: 100%;
+
+}
+.weather-card{
+  /* width: 80%; */
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  padding: 10px;
+}
+.weather-card text{
+  line-height: 20px;
 }

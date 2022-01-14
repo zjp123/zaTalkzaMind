@@ -2,8 +2,8 @@
 <view class="container">
     <view class="page-section">
       <swiper
-        indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
-        interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+        indicator-dots="{{indicatorDots}}" circular="{{circular}}" autoplay="{{autoplay}}" vertical="{{vertical}}"
+        interval="{{interval}}" duration="{{duration}}" >
         <block wx:for="{{images}}" wx:key="*this">
           <swiper-item>
             <image class="img-b" mode="widthFix" src="{{item}}"></image>
@@ -39,6 +39,24 @@
             馓子是用白面为原料，稍加盐和调料，搓成细条（越细说明手艺越好），一圈圈放入油中炸制而成，酥脆可口。方集镇地处淮河支流洪河洼地，安徽省与河南省交界处，保留着沿淮最纯朴民风民俗和最原始的淮河风光。阜南方集馓子纯手工制作，原料采制淮河洪洼地区，天然绿色。其条匀细，中含芝麻，脆而酥。每逢集市，卖馓者多聚集在集市一角，或设摊卖馓，或现炸现卖。
           </view>
         </view>
+        <view class="card banya" bindtap="showLiubian">
+          <view class="card-title">
+            <text>阜南柳编</text>
+            <image src="../../images/downArrow.png"></image>
+          </view>
+          <view class="banya-content" hidden="{{liubian}}">
+            地处淮河之畔的黄岗镇，盛产杞柳，被国家林业局命名为“中国杞柳之乡”。当地5万多农民中，有近一半的人常年从事柳编加工。黄岗柳编产品成为当地出口创汇的主导产业。截至2012年底，阜南县共有柳编企业101家，黄岗柳编产地范围为黄岗镇、郜台乡、中岗镇、张寨镇、曹集镇、老观乡、王家坝镇、于集乡、王化镇、朱寨镇、焦陂镇、地城镇、柳沟镇、苗集镇14个乡镇现辖行政区域。
+          </view>
+        </view>
+        <view class="card banya" bindtap="showHexian">
+          <view class="card-title">
+            <text>曹集河鲜</text>
+            <image src="../../images/downArrow.png"></image>
+          </view>
+          <view class="banya-content" hidden="{{hexian}}">
+            曹集地处淮河干流流域，因地理位置特殊孕育了淡水产品，并形成独特的饮食文化，尤其以曹集“蚬子”，“河鲜”“淮河鱼”最为有名，河鲜时节，吸引大量外地游客品“鲜”，垂钓，观光，远足，骑行，自驾前来品“鲜”。逐步转变为周边各县市的“厨房”，“后花园”，逐步成长为河鲜之都。
+          </view>
+        </view>
         <!-- <view class="card liubian">
           <text>柳编</text>
           <view>柳编柳编柳编柳编柳编</view>
@@ -46,6 +64,39 @@
       </view>
       
     </view>
+    <!-- 查看当前天气 -->
+    <view style="padding: 0 10px; margin: 10px 0">
+      <view class="weather" bindtap="getWeartherDataFn">
+        <text>查看当地天气</text>
+      </view>
+      <view class="weather-content" wx:if="{{weatherData.result.realtime}}">
+        <view class="weather-today" >
+          <view class="inline-style">
+            <text>温度：{{weatherData.result.realtime.temperature}}摄氏度</text>
+            <text>湿度：{{weatherData.result.realtime.humidity}}</text>
+          </view>
+          <view class="inline-style">
+            <text>天气：{{weatherData.result.realtime.info}}</text>
+            <text>空气质量：{{weatherData.result.realtime.aqi}}</text>
+          </view>
+          <view class="inline-style">
+            <text>风向：{{weatherData.result.realtime.direct}}</text>
+            <text>大小：{{weatherData.result.realtime.power}}</text>
+          </view>
+        </view>
+        <view class="weather" >
+          <text>未来5天天气情况</text>
+        </view>
+        <view class="weather-today" >
+          <view wx:for="{{weatherData.result.future}}" class="weather-card">
+            <text>日期：{{item.date}}</text>
+            <text>温度：{{item.temperature}}，{{item.weather}}</text>
+            <text>风向：{{item.direct}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    
   <!-- <view class="userinfo"> -->
     <!-- <block wx:if="{{canIUseOpenData}}">
       <view class="userinfo-avatar" bindtap="bindViewTap">
