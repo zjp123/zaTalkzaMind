@@ -51,27 +51,12 @@ Page({
     }
   },
   getOpenId () {
-    wx.getSetting({
-
-      success (res) {
-        console.log(res.authSetting, 'getSetting')
-        // res.authSetting = {
-        //   "scope.userInfo": true,
-        //   "scope.userLocation": true
-        // }
-      }    
-    })
     wx.login({
       success (res) {
         console.log(res, 'login')
         if (res.code) {
           //发起网络请求
-          // wx.request({
-          //   url: 'https://example.com/onLogin',
-          //   data: {
-          //     code: res.code
-          //   }
-          // })
+          
         } else {
           console.log('登录失败！' + res.errMsg)
         }
@@ -112,17 +97,45 @@ Page({
       hexian: !this.data.hexian
     })
   },
-  async getWeartherDataFn () {
-    const res = await fetchFn.request({ 
-      url: 'http://apis.juhe.cn/simpleWeather/query', 
-      data: {
-        city: '阜阳',
-        key: '2d323f647f8807681253ae2983d35efb'
-      }
-     })
-     this.setData({
-       weatherData: res
-     })
+  getWeartherDataFn () {
+    wx.getSetting({
+      success: async (res) => {
+        console.log(res.authSetting, 'getSetting')
+        // res.authSetting = {
+        //   "scope.userInfo": true,
+        //   "scope.userLocation": true
+        // }
+        if (res.authSetting['scope.userInfo']) {
+          const res = await fetchFn.request({ 
+            url: 'http://apis.juhe.cn/simpleWeather/query', 
+            data: {
+              city: '阜阳',
+              key: '2d323f647f8807681253ae2983d35efb'
+            }
+           })
+           this.setData({
+             weatherData: res
+           })
+        }
+      },
+      fail (res) {
+        console.log(res, '没有授权')
+        wx.showModal({
+          title: '提示',
+          content: '此功能需要获取您的授权才可使用',
+          confirmText: '去授权',
+          success (res) {
+            if (res.confirm) {
+              console.log('用户点击确定')
+              this.getUserProfile()
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+            }
+          }
+        })
+      }   
+    })
+    
     //  console.log(res, 'ress')
   }
   // getUserInfo(e) {

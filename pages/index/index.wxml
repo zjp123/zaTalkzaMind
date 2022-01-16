@@ -88,7 +88,7 @@
           <text>未来5天天气情况</text>
         </view>
         <view class="weather-today" >
-          <view wx:for="{{weatherData.result.future}}" class="weather-card">
+          <view wx:key="date" wx:for="{{weatherData.result.future}}" class="weather-card">
             <text>日期：{{item.date}}</text>
             <text>温度：{{item.temperature}}，{{item.weather}}</text>
             <text>风向：{{item.direct}}</text>

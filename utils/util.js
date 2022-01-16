@@ -31,7 +31,7 @@ class HTTP{
       success: (res) => {
         let data = res.data;
         if ((data.status != undefined && data.status == "ok") || data.error_code === 0) {
-          resolve(data)
+          resolve(data || data.data)
         } else {
           reject();
           wx.showModal({
@@ -53,7 +53,7 @@ class HTTP{
         wx.showToast({
           title: '接口出错了',
           icon: 'none',
-          duration: 30000
+          duration: 1000
         })
       }
     })
