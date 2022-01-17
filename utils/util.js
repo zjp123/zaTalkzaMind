@@ -17,7 +17,7 @@ const formatNumber = n => {
 import {base_url} from "../config.js";
  
 class HTTP{
-  request({ url, data = {}, header = {}, method = "GET", success = () => { }, fail = () => { } }){
+  request({ url, data = {}, header = null, method = "GET", success = () => { }, fail = () => { } }){
     return new Promise((resolve,reject)=>{
       this._request(url, data, header, method, resolve, reject);
     })
@@ -26,7 +26,7 @@ class HTTP{
     wx.request({
       url: base_url + url,
       data: data,
-      header: header,
+      header: {...header, 'Authorization': 'Bearer ' + (wx.getStorageSync('token') || '')},
       method: method,
       success: (res) => {
         let data = res.data;

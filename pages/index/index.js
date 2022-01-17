@@ -121,7 +121,7 @@ Page({
       hexian: !this.data.hexian
     })
   },
-  getWeartherDataFn () {
+  async getWeartherDataFn () {
     wx.getSetting({
       success: async (res) => {
         console.log(res.authSetting, 'getSetting')
