@@ -30,13 +30,13 @@ class HTTP{
       method: method,
       success: (res) => {
         let data = res.data;
-        if ((data.status != undefined && data.status == "ok") || data.error_code === 0) {
+        if ((data.code === 200) || data.error_code === 0) {
           resolve(data || data.data)
         } else {
-          reject();
+          reject(res);
           wx.showModal({
             title: '错误信息',
-            content: '错误信息',
+            content: '服务端错误',
             success(res) {
               if (res.confirm) {
                 console.log('用户点击确定')
@@ -49,7 +49,7 @@ class HTTP{
  
       },
       fail: (err) => {
-        reject();
+        reject(err);
         wx.showToast({
           title: '接口出错了',
           icon: 'none',

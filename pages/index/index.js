@@ -52,13 +52,31 @@ Page({
   },
   getOpenId () {
     wx.login({
-      success (res) {
+      async success (res) {
         console.log(res, 'login')
         if (res.code) {
           //发起网络请求
+          const result = await fetchFn.request({ 
+            url: 'http://127.0.0.1:3001/login',
+            method: 'post',
+            data: {
+              code: res.code,
+              userInfo: wx.getStorageSync('userInfo') || {}
+            }
+           })
+           wx.showToast({
+            title: '登陆成功',
+            icon: 'success',
+            duration: 1500
+          })
           
+           console.log('登陆信息', result)
+           wx.setStorageSync('openid', result.data.result.openid)
+          //  wx.setStorageSync('session_key', result.data.result.session_key)
+           wx.setStorageSync('token', result.data.result.token)
+
         } else {
-          console.log('登录失败！' + res.errMsg)
+          console.log('code获取失败' + res.errMsg)
         }
       }
     })
@@ -70,6 +88,12 @@ Page({
       success: (res) => {
         console.log(res)
         wx.setStorageSync('userInfo', res.userInfo)
+        wx.setStorageSync('loginParam', {
+          cloudID: res.cloudID || '',
+          encryptedData: res.encryptedData || '',
+          iv: res.iv || '',
+          signature: res.signature || '',
+        })
         this.setData({
           userInfo: res.userInfo,
           hasUserInfo: true
