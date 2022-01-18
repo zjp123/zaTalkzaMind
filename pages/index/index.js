@@ -98,30 +98,39 @@ Page({
           userInfo: res.userInfo,
           hasUserInfo: true
         })
+        // 授权之后去登陆
+        this.getOpenId()
       }
     })
   },
-  showBanya () {
-    this.setData({
-      banya: !this.data.banya
-    })
-  },
-  showSanzi () {
-    this.setData({
-      sanzi: !this.data.sanzi
-    })
-  },
-  showLiubian () {
-    this.setData({
-      liubian: !this.data.liubian
-    })
-  },
-  showHexian () {
-    this.setData({
-      hexian: !this.data.hexian
-    })
-  },
   async getWeartherDataFn () {
+    if (!wx.getStorageSync('token')) {
+      wx.showModal({
+        title: '提示',
+        content: '此功能需要获取您的授权才可使用',
+        confirmText: '去授权',
+        success: (res) => {
+          if (res.confirm) {
+            console.log('用户点击确定')
+            this.getUserProfile()
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+    }
+    const res = await fetchFn.request({ 
+      url: 'http://apis.juhe.cn/simpleWeather/query', 
+      data: {
+        city: '阜阳',
+        key: '2d323f647f8807681253ae2983d35efb'
+      }
+     })
+     
+     this.setData({
+       weatherData: res
+     })
+    /*
     wx.getSetting({
       success: async (res) => {
         console.log(res.authSetting, 'getSetting')
@@ -159,8 +168,28 @@ Page({
         })
       }   
     })
-    
+    */
     //  console.log(res, 'ress')
+  },
+  showBanya () {
+    this.setData({
+      banya: !this.data.banya
+    })
+  },
+  showSanzi () {
+    this.setData({
+      sanzi: !this.data.sanzi
+    })
+  },
+  showLiubian () {
+    this.setData({
+      liubian: !this.data.liubian
+    })
+  },
+  showHexian () {
+    this.setData({
+      hexian: !this.data.hexian
+    })
   }
   // getUserInfo(e) {
   //   // 不推荐使用getUserInfo获取用户信息，预计自2021年4月13日起，getUserInfo将不再弹出弹窗，并直接返回匿名的用户个人信息
