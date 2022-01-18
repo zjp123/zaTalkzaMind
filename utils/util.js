@@ -17,7 +17,7 @@ const formatNumber = n => {
 import {base_url} from "../config.js";
  
 class HTTP{
-  request({ url, data = {}, header = null, method = "GET", success = () => { }, fail = () => { } }){
+  request({ url, data = null, header = {}, method = "GET", success = () => { }, fail = () => { } }){
     return new Promise((resolve,reject)=>{
       this._request(url, data, header, method, resolve, reject);
     })
