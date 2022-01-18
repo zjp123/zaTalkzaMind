@@ -118,6 +118,7 @@ Page({
           }
         }
       })
+      return
     }
     const res = await fetchFn.request({ 
       url: 'http://apis.juhe.cn/simpleWeather/query', 
