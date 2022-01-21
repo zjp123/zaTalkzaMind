@@ -66,7 +66,7 @@
     </view>
     <!-- 查看当前天气 -->
     <view style="padding: 0 10px; margin: 10px 0">
-      <view class="weather" bindtap="getWeartherDataFn">
+      <view class="weather" bindtap="getOpenId">
         <text>查看当地天气</text>
       </view>
       <view class="weather-content" wx:if="{{weatherData.result.realtime}}">

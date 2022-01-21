@@ -57,12 +57,12 @@ Page({
         if (res.code) {
           //发起网络请求
           const result = await fetchFn.request({ 
-            url: 'http://127.0.0.1:3001/login',
-            method: 'post',
-            data: {
-              code: res.code,
-              userInfo: wx.getStorageSync('userInfo') || {}
-            }
+            url: 'http://0.0.0.0:8080/string',
+            method: 'get',
+            // data: {
+            //   code: res.code,
+            //   userInfo: wx.getStorageSync('userInfo') || {}
+            // }
            })
            wx.showToast({
             title: '登陆成功',
