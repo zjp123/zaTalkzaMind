@@ -57,7 +57,8 @@ Page({
         if (res.code) {
           //发起网络请求
           const result = await fetchFn.request({ 
-            url: 'http://0.0.0.0:8080/api/string',
+            // url: 'http://0.0.0.0:8080/api/string',
+            url: 'http://www.zjpzjp.com:8080/api/string',
             method: 'get',
             // data: {
             //   code: res.code,
