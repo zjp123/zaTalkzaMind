@@ -36,7 +36,7 @@ class HTTP{
           reject(res);
           wx.showModal({
             title: '错误信息',
-            content: '服务端错误',
+            content: JSON.stringify(res),
             success(res) {
               if (res.confirm) {
                 console.log('用户点击确定')
@@ -51,7 +51,7 @@ class HTTP{
       fail: (err) => {
         reject(err);
         wx.showToast({
-          title: '接口出错了',
+          title: JSON.stringify(err),
           icon: 'none',
           duration: 1000
         })
