@@ -89,7 +89,7 @@ Page({
           //  wx.setStorageSync('session_key', result.data.result.session_key)
            wx.setStorageSync('token', result.data.result.token)
            const res = await fetchFn.request({ 
-            url: 'http://apis.juhe.cn/simpleWeather/query', 
+            url: 'https://apis.juhe.cn/simpleWeather/query', 
             data: {
               city: '阜阳',
               key: '2d323f647f8807681253ae2983d35efb'
@@ -147,7 +147,7 @@ Page({
       return
     }
     const res = await fetchFn.request({ 
-      url: 'http://apis.juhe.cn/simpleWeather/query', 
+      url: 'https://apis.juhe.cn/simpleWeather/query', 
       data: {
         city: '阜阳',
         key: '2d323f647f8807681253ae2983d35efb'
