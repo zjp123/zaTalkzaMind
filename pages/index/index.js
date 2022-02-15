@@ -51,30 +51,54 @@ Page({
     }
   },
   getOpenId () {
+    const that = this
     wx.login({
       async success (res) {
         console.log(res, 'login')
+        const code = res.code
         if (res.code) {
           //发起网络请求
+          console.log(code, 'code')
           const result = await fetchFn.request({ 
             // url: 'http://0.0.0.0:8080/api/string',
-            url: 'http://www.zjpzjp.com/api/string',
-            method: 'get',
-            // data: {
-            //   code: res.code,
-            //   userInfo: wx.getStorageSync('userInfo') || {}
-            // }
+            url: 'https://www.zjpzjp.com/api/login',
+            method: 'post',
+            data: {
+              // code: res.code,
+              code: code,
+              userInfo: wx.getStorageSync('userInfo') || {}
+            }
            })
-           wx.showToast({
-            title: '登陆成功',
-            icon: 'success',
-            duration: 1500
-          })
+           if (result.data.result.openid) {
+              wx.showToast({
+                title: '登陆成功',
+                icon: 'success',
+                duration: 1500
+              })
+           } else {
+              wx.showToast({
+                title: '登陆失败',
+                icon: 'error',
+                duration: 1500
+              })
+           }
+           
           
            console.log('登陆信息', result)
            wx.setStorageSync('openid', result.data.result.openid)
           //  wx.setStorageSync('session_key', result.data.result.session_key)
            wx.setStorageSync('token', result.data.result.token)
+           const res = await fetchFn.request({ 
+            url: 'http://apis.juhe.cn/simpleWeather/query', 
+            data: {
+              city: '阜阳',
+              key: '2d323f647f8807681253ae2983d35efb'
+            }
+           })
+           
+           that.setData({
+             weatherData: res
+           })
 
         } else {
           console.log('code获取失败' + res.errMsg)
@@ -105,6 +129,7 @@ Page({
     })
   },
   async getWeartherDataFn () {
+    console.log(wx.getStorageSync('token'), 'token')
     if (!wx.getStorageSync('token')) {
       wx.showModal({
         title: '提示',
