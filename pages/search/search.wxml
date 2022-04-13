@@ -1,0 +1,5 @@
+<!--pages/search/search.wxml-->
+<!-- <text>pages/search/search.wxml</text> -->
+<view>
+  <mp-searchbar bindselectresult="selectResult" search="{{searchFn}}" placeholder="查找考场"></mp-searchbar>  
+</view>
