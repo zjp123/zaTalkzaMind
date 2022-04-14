@@ -5,6 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    arr: [],
+    triggered: false,
     inputVal: "",
     i: 0
   },
@@ -41,7 +43,55 @@ Page({
   onReady: function () {
 
   },
+  onPulling(e) {
+    console.log('onPulling:', e)
+  },
+  onPusing () {
+    if (this._freshing) return
+    this._freshing = true
+    setTimeout(() => {
+        const arr = []
+        for (let i = 0; i < 10; i++) arr.push(i)
+        this.setData({
+            arr: this.data.arr.concat(arr)
+        })
 
+      this.setData({
+        triggered: false,
+      })
+      this._freshing = false
+    }, 1000)
+  },
+  onRefresh() {
+    if (this._freshing) return
+    this._freshing = true
+    // setTimeout(() => {
+    //   this.setData({
+    //     triggered: false,
+    //   })
+    //   this._freshing = false
+    // }, 3000)
+    setTimeout(() => {
+        const arr = []
+        for (let i = 0; i < 10; i++) arr.push(i)
+        this.setData({
+            arr
+        })
+
+      this.setData({
+        triggered: false,
+      })
+      this._freshing = false
+    }, 1000)
+  },
+
+  onRestore(e) {
+    console.log('onRestore:', e)
+  },
+
+  onAbort(e) {
+    console.log('onAbort', e)
+  },
   /**
    * 生命周期函数--监听页面显示
    */
