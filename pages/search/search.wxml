@@ -1,0 +1,35 @@
+<!--pages/search/search.wxml-->
+<!-- <text>pages/search/search.wxml</text> -->
+<!-- <view>
+  <mp-searchbar bindselectresult="selectResult" search="{{searchFn}}" placeholder="查找考场"></mp-searchbar>  
+</view> -->
+<view class="container">
+  <view style="height: 50px;text-align: center;border: 1px solid red;line-height: 50px;">
+    <text>横说竖说</text>
+  </view>
+  <!-- <view style="display:flex; flex:1; border: 1px solid yellow;"> -->
+    <scroll-view
+      scroll-y
+      style="width: 100%; height: 100%; border: 1px solid blue;"
+      lower-threshold="{{50}}"
+      refresher-enabled="{{true}}"
+      refresher-threshold="{{100}}"
+      refresher-default-style="white"
+      refresher-background="lightgreen"
+      refresher-triggered="{{triggered}}"
+      bindscrolltolower="onPusing"
+      bindrefresherpulling="onPulling"
+      bindrefresherrefresh="onRefresh"
+      bindrefresherrestore="onRestore"
+      bindrefresherabort="onAbort"
+    >
+      <view wx:for="{{arr}}" wx:key="index" style="display: flex; height: 100px;">
+        <image src="https://images.unsplash.com/photo-1565699894576-1710004524ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1832&q=80"></image>
+        <!-- <image src="https://images.unsplash.com/photo-1566402441483-c959946717ed?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=80"></image>
+        <image src="https://images.unsplash.com/photo-1566378955258-7633cb5c823e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"></image>
+        <image src="https://images.unsplash.com/photo-1566404394190-cda8c6209208?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=630&q=80"></image>
+        <image src="https://images.unsplash.com/photo-1566490595448-be523b4d2914?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=958&q=80"></image> -->
+        </view>
+    </scroll-view>
+  <!-- </view> -->
+</view>
