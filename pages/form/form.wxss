@@ -1,0 +1,6 @@
+/* pages/form/form.wxss */
+@import "../../libs/weui.wxss";
+.picker{
+    padding: 13px;
+    background-color: #FFFFFF;
+}
